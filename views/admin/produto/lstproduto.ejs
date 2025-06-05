@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUTOS</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>ESTOQUE</h1>
+    <div style="margin-bottom: 20px;">
+        <a href="/admin/produto/addproduto" style="padding: 10px 20px; background-color: rgb(73, 73, 73); color: white; text-decoration: none; border-radius: 5px;">
+            + Adicionar Produto
+        </a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Código de Barras</th>
+                <th>Data de Validade</th>
+                <th>Estoque Disponível</th>
+                <th>Preço</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% produtos.forEach(produto => { %>
+                <tr>
+<td>
+  <% if (produto.imagem) { %>
+    <img src="<%= produto.imagem %>" alt="Imagem do produto" style="max-width: 50px;" />
+  <% } else { %>
+    <span class="sem-imagem">Sem imagem</span>
+  <% } %>
+</td>
+<td data-label="Nome"><%= produto.nome %></td>
+<td data-label="Descrição"><%= produto.descricao %></td>
+<td data-label="Categoria"><%= produto.categoria %></td>
+<td data-label="Código de Barras"><%= produto.codigobarra %></td>
+<td data-label="Data de Validade"><%= produto.validade.toLocaleDateString('pt-BR') %></td>
+<td data-label="Estoque Disponível"><%= produto.qtdproduto %></td>
+<td data-label="Preço">R$ <%= produto.preco.toFixed(2).replace('.', ',') %></td>
+<td data-label="Opções">
+  <a href="/admin/produto/edtproduto/<%= produto._id %>">Editar</a> |
+  <a href="/admin/produto/delproduto/<%= produto._id %>">Excluir</a>
+</td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px; text-align: center;">
+  <a href="/" style="
+    padding: 10px 20px;
+    background-color: #7f0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  " 
+  onmouseover="this.style.backgroundColor='#cc0000'" 
+  onmouseout="this.style.backgroundColor='#7f0000'">
+    Retornar ao Início
+  </a>
+</div>
+
+</body>
+</html>

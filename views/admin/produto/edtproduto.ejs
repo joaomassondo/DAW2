@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Produto</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <h1>Editar</h1>
+  <form action="/admin/produto/edtproduto/<%= produto.id %>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<%= produto.id %>" />
+
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" value="<%= produto.nome %>" required /><br />
+
+    <label for="descricao">Descrição</label>
+    <input type="text" name="descricao" id="descricao" value="<%= produto.descricao %>" required /><br />
+
+    <label for="categoria">Categoria do produto</label>
+    <select id="categoria" name="categoria" required>
+      <option value="">Selecione</option>
+      <option value="Alimentos básicos" <%=produto.categoria==='Alimentos básicos' ? 'selected' : '' %>>Alimentos
+        básicos</option>
+      <option value="Carnes e Proteínas" <%=produto.categoria==='Carnes e Proteínas' ? 'selected' : '' %>>Carnes e
+        Proteínas</option>
+      <option value="Hortifrúti" <%=produto.categoria==='Hortifrúti' ? 'selected' : '' %>>Hortifrúti</option>
+      <option value="Laticínios" <%=produto.categoria==='Laticínios' ? 'selected' : '' %>>Laticínios</option>
+      <option value="Padaria e Confeitaria" <%=produto.categoria==='Padaria e Confeitaria' ? 'selected' : '' %>>Padaria
+        e Confeitaria</option>
+      <option value="Industrializados" <%=produto.categoria==='Industrializados' ? 'selected' : '' %>>Industrializados
+      </option>
+      <option value="Bebidas" <%=produto.categoria==='Bebidas' ? 'selected' : '' %>>Bebidas</option>
+      <option value="Higiene Pessoal" <%=produto.categoria==='Higiene Pessoal' ? 'selected' : '' %>>Higiene Pessoal
+      </option>
+      <option value="Limpeza Doméstica" <%=produto.categoria==='Limpeza Doméstica' ? 'selected' : '' %>>Limpeza
+        Doméstica</option>
+      <option value="Pet Shop" <%=produto.categoria==='Pet Shop' ? 'selected' : '' %>>Pet Shop</option>
+      <option value="Saúde e Bem-estar" <%=produto.categoria==='Saúde e Bem-estar' ? 'selected' : '' %>>Saúde e
+        Bem-estar</option>
+      <option value="Utilidades e Diversos" <%=produto.categoria==='Utilidades e Diversos' ? 'selected' : '' %>
+        >Utilidades e Diversos</option>
+    </select>
+
+
+    <label for="codigobarra">Código de Barras</label>
+    <input type="text" name="codigobarra" id="codigobarra" value="<%= produto.codigobarra %>" /><br />
+
+    <label for="validade">Data de Validade</label>
+    <input type="date" name="validade" id="validade"
+      value="<%= produto.validade ? produto.validade.toISOString().slice(0,10) : '' %>" /><br />
+
+    <label for="qtdproduto">Estoque Disponível</label>
+    <input type="number" name="qtdproduto" id="qtdproduto" value="<%= produto.qtdproduto %>" min="0" /><br />
+
+    <label for="preco">Preço</label>
+    <input type="number" step="0.01" name="preco" id="preco" value="<%= produto.preco %>" min="0" /><br />
+
+    <label for="imagem">Imagem do Produto</label><br />
+    <% if(produto.imagem){ %>
+      <img src="<%= produto.imagem %>" alt="Imagem atual" style="max-width: 150px; margin-bottom: 10px" />
+      <br />
+      <% } %>
+        <input type="file" name="imagem" id="imagem" accept="image/*" /><br /><br />
+
+        <input type="submit" value="Salvar" class="botao" />
+        <a href="/admin/produto/lstproduto" class="botao">Voltar</a>
+  </form>
+</body>
+
+</html>

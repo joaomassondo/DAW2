@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promoções do Dia</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <style>
+    .botoes-acao {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link-botao {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      background-color: #7f0000;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .link-botao.vermelho {
+      background-color: #990000;
+    }
+
+    .link-botao.vermelho:hover {
+      background-color: #660000;
+    }
+
+    .link-botao.amarelo {
+      background-color: #999900;
+      color: #1a1a1a;
+    }
+
+    .link-botao.amarelo:hover {
+      background-color: #cccc00;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bem-Vindo!</h1>
+  <p class="subtitulo">Confira as melhores ofertas para você logo abaixo:</p>
+
+  <div class="carrossel-wrapper">
+    <button class="controle-carousel esquerdo" id="anterior">❮</button>
+
+    <div class="imagens-destaque" id="destaque-container">
+      <% if (!(imagens && imagens.length)) { %>
+        <p>Nenhuma imagem para exibir no momento.</p>
+      <% } %>
+    </div>
+
+    <button class="controle-carousel direito" id="proximo">❯</button>
+  </div>
+
+  <div class="botoes-acao">
+    <a href="admin/usuario/addusuario" class="link-botao vermelho">Entrar</a>
+    <a href="admin/produto/lstproduto" class="link-botao amarelo">Produtos</a>
+  </div>
+
+  <script type="text/javascript">
+    const imagens = <%- JSON.stringify(imagens || []) %>;
+  </script>
+
+  <script type="text/javascript">
+    const container = document.getElementById("destaque-container");
+    const anteriorBtn = document.getElementById("anterior");
+    const proximoBtn = document.getElementById("proximo");
+
+    let indexAtual = 0;
+    const imagensPorVez = 3;
+    const tempoTroca = 45000;
+
+    function exibirImagens() {
+      container.innerHTML = '';
+
+      if (imagens.length === 0) {
+        container.innerHTML = '<p>Nenhuma imagem para exibir no momento.</p>';
+        return;
+      }
+
+      for (let i = 0; i < imagensPorVez; i++) {
+        const imgIndex = (indexAtual + i) % imagens.length;
+        const img = imagens[imgIndex];
+
+        const el = document.createElement('img');
+        el.src = img.url;
+        el.alt = img.descricao || 'Imagem de promoção';
+        el.onload = () => el.classList.add('fade-in');
+
+        container.appendChild(el);
+      }
+    }
+
+    function proximoSet() {
+      indexAtual = (indexAtual + imagensPorVez) % imagens.length;
+      exibirImagens();
+    }
+
+    function anteriorSet() {
+      indexAtual = (indexAtual - imagensPorVez + imagens.length) % imagens.length;
+      exibirImagens();
+    }
+
+    anteriorBtn.addEventListener('click', anteriorSet);
+    proximoBtn.addEventListener('click', proximoSet);
+
+    setInterval(proximoSet, tempoTroca);
+
+    exibirImagens();
+  </script>
+</body>
+
+</html>

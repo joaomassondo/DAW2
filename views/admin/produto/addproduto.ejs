@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produto</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+
+  <body>
+    <h1>ADICIONAR PRODUTO</h1>
+    <form
+      action="/admin/produto/addproduto"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" /><br />
+
+      <label for="descricao">Descrição</label>
+      <input type="text" name="descricao" id="descricao" /><br />
+
+      <div class="form-group">
+        <label for="categoria">Categoria do produto</label>
+        <select id="categoria" name="categoria" required>
+          <option value="Alimentos básicos">Alimentos básicos</option>
+          <option value="Carnes e Proteínas">Carnes e Proteínas</option>
+          <option value="Hortifrúti">Hortifrúti</option>
+          <option value="Laticínios">Laticínios</option>
+          <option value="Padaria e Confeitaria">Padaria e Confeitaria</option>
+          <option value="Industrializados">Industrializados</option>
+          <option value="Bebidas">Bebidas</option>
+          <option value="Higiene Pessoal">Higiene Pessoal</option>
+          <option value="Limpeza Doméstica">Limpeza Doméstica</option>
+          <option value="Pet Shop">Pet Shop</option>
+          <option value="Saúde e Bem-estar">Saúde e Bem-estar</option>
+          <option value="Utilidades e Diversos">Utilidades e Diversos</option>
+        </select>
+      </div>
+
+      <label for="codigobarra">Código de Barras</label>
+      <input type="text" name="codigobarra" id="codigobarra" /><br />
+
+      <label for="validade">Data de Validade</label>
+      <input type="date" name="validade" id="validade" /><br />
+
+      <label for="qtdproduto">Estoque Disponível</label>
+      <input type="number" name="qtdproduto" id="qtdproduto" /><br />
+
+      <label for="preco">Preço</label>
+      <input type="number" step="0.01" name="preco" id="preco" /><br />
+
+      <label for="imagem">Imagem do Produto</label>
+      <input type="file" name="imagem" id="imagem" accept="image/*" /><br />
+
+      <input type="submit" value="Salvar" />
+      <a href="/" class="botao">Voltar</a>
+    </form>
+  </body>
+</html>

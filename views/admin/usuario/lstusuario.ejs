@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USUARIOS</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+
+
+    <h1>USUARIOS</h1>
+
+    <table border="1">
+        
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Opções</th>
+        </tr>
+        <% Usuarios.forEach(function(usuario){%>
+        <tr>
+            
+            <td><%=usuario.nome%></td>
+            <td><%=usuario.email%></td>
+            <td><%=usuario.senha%></td>
+            <td>
+                <a href="/admin/usuario/edtusuario/:1">Editar</a> |
+                <a href="/admin/usuario/delusuario/:id">Excluir</a> 
+         
+            </td>
+        </tr>
+        <%}) %>
+        
+    </table>
+
+    <br>
+
+    <a href="/admin/usuario/addusuario">Adicionar Novo Usuario</a> <br>
+    <a href="/">Inicio</a>
+
+</body>
+
+</html>
+

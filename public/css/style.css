@@ -1,0 +1,329 @@
+/* Reset geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilização do corpo da página */
+body {
+  background-color: #1a1a1a;
+  /* cinza muito escuro quase preto */
+  color: #e0e0e0;
+  /* cinza claro para contraste */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Cabeçalhos */
+h1 {
+  color: #7f0000;
+  /* vermelho escuro personalizado */
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+  background: #2a2a2a;
+  /* cinza escuro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  text-align: left;
+  border: 2px solid #7f0000;
+  /* vermelho escuro personalizado */
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  color: #a30000;
+  /* tom mais vivo do vermelho base */
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+/* Botões padrão (vermelho) */
+button,
+.botao {
+  display: inline-block;
+  background-color: #7f0000;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+.botao:hover {
+  background-color: #a30000;
+  /* vermelho mais intenso */
+}
+
+/* Botão cinza específico */
+.botao-cinza {
+  background-color: #555;
+  /* cinza escuro */
+  color: #e0e0e0;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.botao-cinza:hover {
+  background-color: #333;
+  /* cinza mais escuro no hover */
+}
+
+/* Tabela */
+table {
+  width: 90%;
+  margin: 20px auto 40px auto;
+  border-collapse: collapse;
+  background: #2a2a2a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid #444;
+  vertical-align: middle;
+  text-align: left;
+}
+
+th {
+  background-color: #7f0000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+/* Imagem do produto na tabela */
+.produto-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(127, 0, 0, 0.7);
+}
+
+/* Texto para produtos sem imagem */
+.sem-imagem {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Links */
+a {
+  color: #b30000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff4444;
+  text-decoration: underline;
+}
+
+/* Container de botões */
+.opcoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Links de índice (estilo botão) */
+.link-botao {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  background-color: #7f0000;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.link-botao:hover {
+  background-color: #a30000;
+  transform: scale(1.05);
+}
+
+/* Opções de cores extras */
+.link-botao.vermelho {
+  background-color: #990000;
+}
+
+.link-botao.vermelho:hover {
+  background-color: #660000;
+}
+
+.link-botao.amarelo {
+  background-color: #999900;
+  color: #1a1a1a;
+}
+
+.link-botao.amarelo:hover {
+  background-color: #cccc00;
+}
+
+/* Container personalizado para o formulário com botão no topo */
+.form-container {
+  position: relative;
+  padding: 20px;
+  border: 2px solid #7f0000;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  width: 400px;
+  margin: 40px auto;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Link no canto superior direito */
+.editar-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #7f0000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.editar-link:hover {
+  background-color: #a30000;
+}
+
+.editar-link.preto {
+  background-color: #000;
+  color: #fff;
+}
+
+.editar-link.preto:hover {
+  background-color: #333;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #7f0000;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #444;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: bold;
+    color: #a30000;
+    width: 40%;
+    text-align: left;
+  }
+
+  .produto-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+}
+
+.carrossel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+.imagens-destaque {
+  display: flex;
+  gap: 20px;
+  position: relative; /* necessário para o posicionamento relativo das imagens */
+  padding: 0 50px;    /* abre espaço de 50px nas laterais para os botões */
+}
+
+.controle-carousel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #7f0000;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 20;
+  transition: color 0.2s ease;
+}
+
+.controle-carousel.esquerdo {
+  left: 0;       /* começa exatamente na borda do container wrapper */
+  margin-left: -50px;  /* desloca 50px pra fora à esquerda */
+}
+
+.controle-carousel.direito {
+  right: 0;      /* começa na borda direita do container */
+  margin-right: -50px; /* desloca 50px pra fora à direita */
+}
+
+.controle-carousel:hover {
+  color: #cc0000;
+}

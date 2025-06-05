@@ -1,0 +1,21 @@
+{
+  "name": "node6info",
+  "version": "1.0.0",
+  "description": "revisando",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "teste"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.0",
+    "multer": "^2.0.0",
+    "path": "^0.12.7"
+  }
+}
